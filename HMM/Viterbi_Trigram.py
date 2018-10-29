@@ -144,7 +144,7 @@ def buildMarkov(markov, filename):
     for j in range(markov.vocab_size):
       #markov.transitions3[i][j] /= markov.counts2[i][j]
       markov.transitions[i][j] = (markov.lambdas[0]*markov.transitions3[i][j]/markov.counts2[i][j] + 
-                                 markov.lambdas[1]*markov.transitions2[i]/markov.counts1[i] +
+                                 markov.lambdas[1]*markov.transitions2[i]/markov.counts1[j] +
                                  markov.lambdas[2]*markov.vocab_counts[i]/markov.word_count)
   
   for j in range(markov.tags_size):
@@ -158,16 +158,15 @@ def buildMarkov(markov, filename):
 def generate_tweet(sequence, markov):
   n = len(sequence)
   trellis = np.zeros(( n + 1 , markov.vocab_size, markov.vocab_size))
-  bp = [[[None for k in range(markov.vocab_size)] for j in range(markov.vocab_size)] for i in range( n + 1)]
+  bp = [[[None for k in range(markov.vocab_size)] for j in range(markov.vocab_size)] for i in range( n + 1 )]
   start = markov.vocab_states["_START_"] #index of "start" symbol
-  first_tag = markov.tags_states[sequence[0]]
   
   #Initialize
   trellis[0][start][start] = 1
 	
   #"Recursion"
   for k in range(1, n + 1):
-    tag = markov.tags_states[sequence[k]]
+    tag = markov.tags_states[sequence[k-1]]
     # Find max for trellis[k][u][v]
     for u in range(markov.vocab_size):
       for v in range(markov.vocab_size):
@@ -184,19 +183,19 @@ def generate_tweet(sequence, markov):
   end = markov.vocab_states["_END_"]
   for u in range(markov.vocab_size):
     for v in range(markov.vocab_size):
-      if(trellis[n-1][u][v]*markov.transitions[u][v][end] > vit_max):
+      if(trellis[n][u][v]*markov.transitions[u][v][end] > vit_max):
         u_max = u
         v_max = v
-        vit_max = trellis[n-1][u][v]*markov.transitions3[u][v][end]
+        vit_max = trellis[n][u][v]*markov.transitions3[u][v][end]
 		
   result = [None for k in range(n)]
   result[n-1] = v_max
   result[n-2] = u_max
   w1 = u_max
   w2 = v_max
-  k = n-3
-  while k >= 0:
-    result[k] = bp[k+2][w1][w2]
+  k = n-2
+  while k > 0:
+    result[k-1] = bp[k+2][w1][w2]
     w2 = w1
     w1 = result[k]
     k -= 1
@@ -207,7 +206,7 @@ def generate_tweet(sequence, markov):
 def main():
   time_start = time.time()
   
-  tweet_file = "processed100.txt"
+  tweet_file = "processed1000.txt"
   
   print("DEBUGGING - all files are hardcoded")
   
