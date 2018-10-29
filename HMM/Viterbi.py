@@ -103,18 +103,25 @@ def buildMarkov(markov, filename):
       prev = markov.vocab_states["_START_"] #index of "start" symbol
       markov.vocab_counts[prev] += 1
       for i in range(len(words)): #looping through tags in tokens as well
-        curr = markov.vocab_states[words[i]]  # index of current word
+        curr = markov.vocab_states[words[i]]      # index of current word
         tag = markov.tags_states[tokens[i]]   # index of current tag
         markov.transitions[prev][curr] += 1
         markov.emissions[tag][curr] += 1
         markov.vocab_counts[curr] += 1
+        markov.tags_counts[tag] += 1
         prev = curr
       curr = markov.vocab_states["_END_"] #index of "end" symbol
       markov.transitions[prev][curr] += 1
       markov.vocab_counts[curr] += 1
 	
-  for i in range(len(markov.transitions)):
+
+  for i in range(markov.vocab_size):
     markov.transitions[i] /= markov.vocab_counts[i]
+	
+  for j in range(markov.tags_size):
+    for i in range(markov.vocab_size):
+      markov.emissions[j][i] /= markov.vocab_counts[i]
+
 
   return markov
   
@@ -124,7 +131,6 @@ def generate_tweet(sequence, markov):
   n = len(sequence)
   trellis = np.zeros(( n , markov.vocab_size))
   bp = [[None for j in range(markov.vocab_size)] for i in range( n )]
-  #bp = np.zeros(( n, markov.vocab_size))
   start = markov.vocab_states["_START_"] #index of "start" symbol
   first_tag = markov.tags_states[sequence[0]]
   
@@ -142,34 +148,28 @@ def generate_tweet(sequence, markov):
           trellis[i][word] = temp
           bp[i][word] = j
       trellis[i][word] *= markov.emissions[tag][word]
-	  
-  num_tweets = 5
-  w_max = []
-  vit_max = []
-  for word in range(markov.vocab_size):
-    if(trellis[n-1][word] != 0):
-      vit_max.append([trellis[n-1][word],word])
-  vit_max.sort(key=lambda x: x[0])
-  vit_max.reverse() #sort descending
-  vit_max = vit_max[0:num_tweets]
-  for ele in vit_max:
-    w_max.append(ele[1])
-	   
-  # Recover tags from backpointer
-  result = [[None for k in range(n)] for j in range(len(w_max))]
-  for row in range(len(w_max)):
-    i = n-1
-    w = w_max[row]
-    while i >= 0:
-      result[row][i] = w
-      w = bp[i][w]
-      i -= 1
 
+  w_max = ""
+  vit_max = 0
+  end = markov.vocab_states["_END_"]
+  # Find best final word in order to go backwards
+  for word in range(markov.vocab_size):
+    if(trellis[n-1][word]*markov.transitions[word][end] > vit_max):
+      w_max = word
+      vit_max = trellis[n-1][word]*markov.transitions[word][end]
+	  
+  result = [None for k in range(n)]
+  i = n-1
+  w = w_max
+  while i >= 0:
+    result[i] = w
+    w = bp[i][w]
+    i -= 1
+	  
   return result
 
 def main():
   time_start = time.time()
-  
   tweet_file = "processed1000.txt"
   
   print("DEBUGGING - all files are hardcoded")
@@ -180,21 +180,21 @@ def main():
   #debug_tweet = "what am i doing here?"
   
   # Actual tweets from corpus
-  #debug_tweet = "need a hug" 
-  #debug_tweet = "damn... i don't have any chalk! my chalkboard is useless"
-  debug_tweet = "michigan state you make me sad"
+  #debug_tweet = "need a hug"   
+  debug_tweet = "damn... i don't have any chalk! my chalkboard is useless"
+  #debug_tweet = "michigan state you make me sad"
+  #debug_tweet = "i don't have a garage. but you can park in my driveway!"
   
   tag_sequence = getTags(debug_tweet)
+  #print(tag_sequence)
   
   markov = Markov()
   markov = buildMarkov(markov, tweet_file)
   print("\nBuild Time = ", (time.time() - time_start), " s")
-  print("vocab size = ", markov.vocab_size)
-  tweets = generate_tweet(tag_sequence, markov)
-  for tweet in tweets:
-    for word in tweet:
-      print(markov.recoverWord(word), " ", end="")
-    print()
+  tweet = generate_tweet(tag_sequence, markov)
+  for word in tweet:
+    print(markov.recoverWord(word), " ", end="")
+  print()
 	
   time_end = time.time()
   print("\nTotal Time: ", (time_end-time_start), " s")
