@@ -129,17 +129,16 @@ def buildMarkov(markov, filename):
 # Reversed Viterbi
 def generate_tweet(sequence, markov):
   n = len(sequence)
-  trellis = np.zeros(( n , markov.vocab_size))
-  bp = [[None for j in range(markov.vocab_size)] for i in range( n )]
+  trellis = np.zeros(( n + 1 , markov.vocab_size))
+  bp = [[None for j in range(markov.vocab_size)] for i in range( n + 1 )]
   start = markov.vocab_states["_START_"] #index of "start" symbol
-  first_tag = markov.tags_states[sequence[0]]
+  #first_tag = markov.tags_states[sequence[0]]
   
   #Initialize
-  for word in range(markov.vocab_size):
-    trellis[0][word] = markov.transitions[start][word] * markov.emissions[first_tag][word]
+  trellis[0][start] = 1
 	
   #"Recursion"
-  for i in range(1, n):
+  for i in range(1, n + 1):
     tag = markov.tags_states[sequence[i]]
     for word in range(markov.vocab_size):
       for j in range(markov.vocab_size):
@@ -154,15 +153,15 @@ def generate_tweet(sequence, markov):
   end = markov.vocab_states["_END_"]
   # Find best final word in order to go backwards
   for word in range(markov.vocab_size):
-    if(trellis[n-1][word]*markov.transitions[word][end] > vit_max):
+    if(trellis[n][word]*markov.transitions[word][end] > vit_max):
       w_max = word
-      vit_max = trellis[n-1][word]*markov.transitions[word][end]
+      vit_max = trellis[n][word]*markov.transitions[word][end]
 	  
   result = [None for k in range(n)]
-  i = n-1
+  i = n
   w = w_max
-  while i >= 0:
-    result[i] = w
+  while i > 0:
+    result[i-1] = w
     w = bp[i][w]
     i -= 1
 	  
@@ -192,8 +191,11 @@ def main():
   markov = buildMarkov(markov, tweet_file)
   print("\nBuild Time = ", (time.time() - time_start), " s")
   tweet = generate_tweet(tag_sequence, markov)
-  for word in tweet:
-    print(markov.recoverWord(word), " ", end="")
+  for i in range(len(tweet)):
+    print(markov.recoverWord(tweet[i]), sep="", end="")
+    if i < len(tweet)-1:
+      if tag_sequence[i+1] != ":" and tag_sequence[i+1] != "." and markov.recoverWord(tweet[i+1]) != "n't":
+        print(" ", sep="", end="")
   print()
 	
   time_end = time.time()
