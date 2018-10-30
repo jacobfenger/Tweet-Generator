@@ -17,12 +17,11 @@ import csv
 	
 class Markov:
   def __init__(self):
-    self.vocab_states = {} # map vocab to index in transitions and  emissions
+    self.vocab_states = {} # map vocab to index in transitions and emissions
     self.tags_states = {}  # map tag to index in emissions
     self.transitions = []  # 2D array - prob that word follows a word
     self.emissions = []    # 2D array - prob of tag given word
     self.vocab_counts = [] # 1D array - counts of each word occurence
-    self.tags_counts = []  # 1D array - counts of each tag occurence
     self.vocab_size = 0
     self.vocab = []
 	# NLTK tags
@@ -61,8 +60,6 @@ class Markov:
     self.emissions = np.zeros((self.tags_size, self.vocab_size))
     # Counts of words
     self.vocab_counts = np.zeros(self.vocab_size)
-    # Counts of tags
-    self.tags_counts = np.zeros(self.tags_size)
     pass
 	
   def recoverWord(self, index):
@@ -75,8 +72,6 @@ class Viterbi:
   def __init__(self):
     self.trellis = [] #2D array
     self.bp = []      #2D array
-  
-
   
 def getTags(line):
   raw_tokens = nltk.word_tokenize(line)
@@ -116,7 +111,6 @@ def buildMarkov(markov, filename):
         markov.transitions[prev][curr] += 1
         markov.emissions[tag][curr] += 1
         markov.vocab_counts[curr] += 1
-        markov.tags_counts[tag] += 1
         prev = curr
       curr = markov.vocab_states["_END_"] #index of "end" symbol
       markov.transitions[prev][curr] += 1
@@ -129,10 +123,8 @@ def buildMarkov(markov, filename):
     for i in range(markov.vocab_size):
       markov.emissions[j][i] /= markov.vocab_counts[i]
 
-
   return markov
   
-    
 # Reversed Viterbi
 def generate_viterbi(n, markov):
   trellis = np.zeros(( n + 1, markov.vocab_size))
@@ -204,41 +196,41 @@ def main():
   
   # Run command is [build/load] [data_file] [sequence length]
   
-  # Build trellis and bp and write to file
-  if len(args) == 3 and args[0] == "build":
+  if len(args) == 3:
     tweet_file = args[1]
     length = int(args[2])
     filename = tweet_file.split(".")[0]
     trellis_file = filename + "_sequence" + str(length) + "_trellis.txt"
     bp_file = filename + "_sequence" + str(length) + "_bp.txt"
-    markov = Markov()
-    markov = buildMarkov(markov, tweet_file)
-    viterbi = generate_viterbi(length, markov)
-    np.savetxt(trellis_file, viterbi.trellis)
-    np.savetxt(bp_file, viterbi.bp)
-  
-  if len(args) == 3 and args[0] == "load":
-    tweet_file = args[1]
-    length = int(args[2])
-    filename = tweet_file.split(".")[0]
-    trellis_file = filename + "_sequence" + str(length) + "_trellis.txt"
-    bp_file = filename + "_sequence" + str(length) + "_bp.txt"
-    markov = Markov()
-    markov = buildMarkov(markov, tweet_file)
-    trellis = np.loadtxt(trellis_file).astype(float)
-    bp = np.loadtxt(bp_file).astype(int)
 	
-    word_sequence = input("Enter a word sequence: ")
-    #debug_tweet = "man work is hard" #actual tweet
+    markov = Markov()
+    markov = buildMarkov(markov, tweet_file)
+	# Rebuilding Markov is better than reading from file
+    # -->Building Markov for 5000 tweets takes around 30 s
+	# -->Loading Markov for 5000 tweets takes 160 s
+	# ---> Transmissions File is 2.1G; it took 1422 s to generate
 
-    tag_sequence = getTags(word_sequence)
-    tweet = generate_tweet(tag_sequence, trellis, bp, markov)
-    for i in range(len(tweet)):
-      print(markov.recoverWord(tweet[i]), sep="", end="")
-      if i < len(tweet)-1:
-        if tag_sequence[i+1] != ":" and tag_sequence[i+1] != "." and markov.recoverWord(tweet[i+1]) != "n't":
-          print(" ", sep="", end="")
-    print()
+    # Build markov, trellis, and bp and write to file
+    if args[0] == "build":
+      viterbi = generate_viterbi(length, markov)
+    
+      np.savetxt(trellis_file, viterbi.trellis)
+      np.savetxt(bp_file, viterbi.bp)
+	  
+    # Load trellis and bp from files and generate tweet based on keyboard input
+    if args[0] == "load":
+      trellis = np.loadtxt(trellis_file).astype(float)
+      bp = np.loadtxt(bp_file).astype(int)
+      
+      word_sequence = input("Enter a word sequence: ")
+      tag_sequence = getTags(word_sequence)
+      tweet = generate_tweet(tag_sequence, trellis, bp, markov)
+      for i in range(len(tweet)):
+        print(markov.recoverWord(tweet[i]), sep="", end="")
+        if i < len(tweet)-1:
+          if tag_sequence[i+1] != ":" and tag_sequence[i+1] != "." and markov.recoverWord(tweet[i+1]) != "n't":
+            print(" ", sep="", end="")
+      print()
 	
   time_end = time.time()
   print("\nTotal Time: ", (time_end-time_start), " s")
