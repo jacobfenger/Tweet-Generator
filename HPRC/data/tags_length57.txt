@@ -1,0 +1,15 @@
+, : . . . . . . . . . . . . . . . . . . . . . . . . . . , . . . . . . . . . CD . . . . , . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . NN . NN . . . . . . . . . NN 
+PRP VBZ VBN VBG IN CC IN NN . PRP$ NN VBZ RB VB NN NNS VBP RB . VB . VB . VB . VB . VB . VB . VB . VB . VB . VB . VB . VB . VB NN . VB . VB . VB . VB . VB . NN 
+JJ CC NNS NN . . . VBD . . . . . JJ . . . . . . JJ . . . . . . . NN . . . . . . . . NN TO VB IN DT NN . . . DT NN . . . . . . . . . 
+NN NNP NNP NN VBP NN CD NN NN NNP NNP NN NN . , FW JJ NNP NNP MD VB VB NNP NNP NNP MD VB NNP NNP MD VB , FW FW FW FW FW NN NNP NNP NN NN JJ NN NN NN , CC RB NNP NNP NNP NN NN NNP NN NN 
+RB CD JJ NNS DT IN DT NN CC NN : NNS CC NN : . VB : DT RBR VBG CC NNS : CC CC NN : TO CC NN : CC CC NN : : NN : DT JJR NNS CC NN : CC CC NN : TO CC NN : CC CC NN : 
+NN ) ( NNP CC NN : ) . CD NN CC NN : . ) # CC NN : NNP $ ) . JJ # CC NN : ) VBP CC VBP : # $ NN NNP PRP$ NN IN DT NN NN : DT JJ NN NNS VBP VBG . DT PRP JJ JJ NNS 
+JJ NN ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( NNS ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) 
+WRB DT NN VBP PRP VB PRP$ NN IN RB . . . . JJ NN RB DT NN . . . . . . . . . . . . . . . . . RB . . . . . . . . . . . . . . . . . . . . 
+NN NN IN NN NN . JJ NN NN . NN . VB NN . NN . . NN NN . JJ NN NN . NN . . IN NN CC NN : CC VB . NN NN CC NN : ) FW JJ NN NN . JJ NN NN CC NN : CC CC NN : 
+. NN . . . . : . . . : . . NN . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . : 
+NN : SYM : . . . . . . . . . . . . . . , . . . . . . . . . . . . . . . . . . . . . . . , . . . . . . . . . . . . . NN 
+. . . . . . VB . . . . : . . . . . . : . VB . . . . . . . . . . . . . . . . . . . . . . . . . . VB . . . . . . . . NN 
+NN NN , NNP NNP NNP NNP NNP NNP NNP NNP NNP NNP NNP NNP NNP NNP NNP NNP NNP NNP NNP NNP NNP . VB JJ NNP NNP CD VBD CD NN . VB NN . JJ NN NNP NNP NNP NNP . NNP NNP NNP . NN NN . VB NN . JJ NN NN 
+NN . JJ NN NN . JJ NN NN . VB . VB . VB . VB . VB . VB . VB . VB . VB . VB . VB NN . VB . VB . VB . VB NN . VB . VB . . NN . VB . VB . NN POS NN NN 
