@@ -1,0 +1,16 @@
+Viterbi_generalized_mp.py:88: RuntimeWarning: invalid value encountered in true_divide
+  self.transitions[i] /= self.vocab_counts[i]
+Viterbi_generalized_mp.py:92: RuntimeWarning: invalid value encountered in double_scalars
+  self.emissions[j][i] /= self.vocab_counts[i]
+
+Build Time =  18.377466917037964  s
+Object =  56
+Transitions =  6902655120
+Emissions =  10574752
+Trellis =  1410064
+BP =  1410064
+Function =  64
+
+Total Time:  18.803272485733032  s
+
+# Reading all of the words_length5.txt (1.5M) -> 6.9G Markov object
