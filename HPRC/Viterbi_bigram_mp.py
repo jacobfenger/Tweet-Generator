@@ -2,14 +2,12 @@
 import numpy as np
 import random as rm
 import multiprocessing as mp
-from multiprocessing import Pool
 import os
 import re
 import sys
 import getopt
 import time
 import pprint
-import gc
 	
 class Markov:
   def __init__(self):
@@ -54,13 +52,19 @@ class Markov:
     self.vocab_counts = np.zeros(self.vocab_size)
     pass
 	
-  def buildMarkov(self, tweet_file, tag_file):
+  def buildMarkov(self, tweet_file, tag_file, num_tweets):
     #Initialize Markov
-    ifs = open(tweet_file, "r", encoding='utf-8')
-    tweet_lines = ifs.read().split("\n")
+    ifs = open(tweet_file, "r", encoding="ISO-8859-1")#, encoding='utf-8')
+    tweet_lines = [None for x in range(num_tweets)]
+    for i in range(num_tweets):
+      tweet_lines[i] = ifs.readline()
+    #tweet_lines = ifs.read().split("\n")
     ifs.close()
-    ifs = open(tag_file, "r", encoding='utf-8')
-    tag_lines = ifs.read().split("\n")
+    ifs = open(tag_file, "r", encoding="ISO-8859-1")#, encoding='utf-8')
+    tag_lines = [None for x in range(num_tweets)]
+    for i in range(num_tweets):
+      tag_lines[i] = ifs.readline()
+    #tag_lines = ifs.read().split("\n")
     ifs.close()
     self.initialize(tweet_lines, tag_lines)
   
@@ -99,8 +103,6 @@ class Markov:
       if(self.vocab_states[w] == index):
         return w
     return None
-	
-
 
   # Reversed Viterbi
   def generate_tweet(self, sequence):
@@ -140,54 +142,48 @@ class Markov:
         result[i-1] = self.recoverWord(w)
         w = int(bp[i][w])
         i -= 1
-      #output.put(result)
+      tweet = ""
       for word in result:
-        print(word.encode('utf-8'), " ", end="")
-      print()
-      print("Process finished after ", (time0-time.time()))
+        tweet += word + " "
+      return tweet
+      #markov.ofs.write(tweet + "\n")
+      #print(tweet)
+      
+      #return result
+      #output.put(result)
+      #for word in result:
+      #  print(word.encode('utf-8'), " ", end="")
+      #print()
+      #print("Process finished after ", (time0-time.time()))
 
 def main():
   time_start = time.time()
   (options, args) = getopt.getopt(sys.argv[1:], '')
     
-  if len(args) == 1: # data file (tweets)
-    tweet_file = args[0]
-    sequence_file = tweet_file.split(".")[0] + "_sequences.txt" #associated sequence file
-    output_file = tweet_file.split(".")[0] + "_bigramOutput.txt"
+  if len(args) == 2: # sequence length, num tweets
+    length = int(args[0])
+    num_tweets = int(args[1])
+    words_file = "words_length" + str(length) + ".txt"
+    tags_file = "tags_length" + str(length) + ".txt"
+    output_file = "BigramOut_length" + str(length) + "_size" + str(num_tweets) + ".txt"
 	
     markov = Markov()
-    markov.buildMarkov(tweet_file, sequence_file)
+    markov.buildMarkov(words_file, tags_file, num_tweets)
     print("\nBuild Time = ", (time.time() - time_start), " s")
+    
+    num_output = 10
 	
-    ifs = open(sequence_file, "r", encoding='utf-8')
-    lines = ifs.read().split("\n")
+    ifs = open(tags_file, "r", encoding="ISO-8859-1")# encoding='utf-8')
+    tag_sequences = [None for x in range(num_output)]
+    for i in range(num_output):
+      tag_sequences[i] = ifs.readline().strip().split(" ")
     ifs.close()
-    tag_sequences = [None for x in range(10)]#len(lines))]
-    for i in range(10):#len(lines)):
-      tag_sequences[i] = lines[i].strip().split(" ")
 	  
-    #output = mp.Queue()
-    pool = Pool(processes = 8)
-    pool.map(markov.generate_tweet, tag_sequences)
-    #processes = []
-    #for seq in tag_sequences:
-    #  p = mp.Process(target=markov.generate_tweet, args=seq)
-    #  processes.append(p)
-    #  p.start()
-      #count += 1
-      #if count == 10:
-      #  break
-
-    #for p in processes:
-    #  p.join()
-	  
-    # Get process results from the output queue
-    #results = [output.get() for seq in tag_sequences]
-    #for r in results:
-    #  for word in r:
-    #    print(word, " ", end="")
-    #  print()
-	  	
+    pool = mp.Pool(processes = 8)
+    with open(output_file, "w", encoding='utf-8') as ofs:
+      for result in pool.imap(markov.generate_tweet, tag_sequences):
+        ofs.write(str(result) + "\n")
+    	  	
   time_end = time.time()
   print("\nTotal Time: ", (time_end-time_start), " s")
   
