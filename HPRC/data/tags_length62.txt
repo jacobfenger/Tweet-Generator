@@ -1,0 +1,10 @@
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . : EX VBD DT NN IN PRP$ NN 
+. . . . . . . . . . . . . . . NN . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . NN . . . . . . 
+JJ NN NNP NN NN NN , NNP NNP NNP NN NN NNP . NN NN JJ NN NN NNP NNP , NN NN NNP NNP NNP NNP NNP NNP MD VB , VB NNP . JJ NN NN NN NNP NNP NN VBP NN NNP NNP MD VB NNP NNP VBZ JJ NN NN NNP NNP NNP NNP NNP NN NN 
+NN : : NN . . . . . JJ VBP PRP$ NN . . . . . . . . . . . . . . . . . : NN : : NN . . . . . JJ VBP PRP$ NN . . . . . . . . . . . . . . . . . NN 
+. . . . , . . . . . . . . . . NN ) ) . . . . . . . . . . . . . . . . . . . . . . , . . . . . . . . . NN , NN , VB . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . , . . . . . . . CD . . . . . . . . . . . . . . . , . . . . . . . . . . . . . . . . . . . . . . 
+JJ NNP NNP NNP NNP . NN NN . . NN . JJ NN NNP NNP NNP . NNP NNP NNP NNP NNP NNP NNP NNP . $ CD . JJ NN NNP NNP NNP NNP NNP NNP : . ( VB . VB . JJ NN NNP NNP NNP NNP . NNP NNP NNP NNP NNP NNP NNP NNP : NN 
+NN . . . . . . . . . . . JJ NN JJ IN NN . . . . . NN RB JJ PRP$ DT NN RB IN PRP . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+NN VBP PRP CC VB PRP . VB MD RB VB IN PRP . VBP RB VB JJ . . CC : JJ VBP PRP$ NN . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 

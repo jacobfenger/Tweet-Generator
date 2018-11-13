@@ -1,0 +1,16 @@
+RB PRP VBZ RB PRP , CC WRB NN VBZ PRP CC NN : VBP DT JJ NN , CC NN : PRP$ NN VBZ RB CC RB : PRP RB , CC NN : RB CC VBP : NN MD , CC NN : CC NN : CC , CC NN : CC CC NN : CC CC NN : 
+JJ NN POS NN VBZ DT NN . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . NN MD RB VB PRP VB CD PRP$ JJ NN . 
+NN VBP IN JJ NN . . . . . . . . . . . . . WRB IN NN MD VB VB DT NN NN . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . NN . 
+UH CC NN : CC NN : CC NN : CC NN : CC NN : CC NN : CC NN : CC NN : CC NN : CC NN : CC NN : CC NN : CC NN : CC NN : CC NN : CC NN : PRP VBP VBG TO VB RB RB . DT RBR JJ NN 
+NN . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+JJ VBD NNP . NN NN . VB NN . VB . VB . VB . VB . VB . VB . ( VB . VB . VB . VB . ) NN . VB NN . VB . VB NN . VB . VB . VB NN . VB . VB . VB . VB . VB NN . NN 
+NN : NN CC NN : : NN NN NN NNP NNP NN VBP NN NN NN NNP . NNP NNP NNP NNP NNP MD VB JJ CD JJ NN NN NN NNP NNP NN NNP NNP CC NN : CC JJ NN NN NNP . NN CC NN : CC VB JJ NN NN NNP NNP NNP NNP NNP NN 
+PRP$ NN VBD JJ NN VBP NN . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . MD NN VB NN . . 
+UH . . . . . . . . . . . . . . . . . . . . . . . VB PRP . . . . . . . . . CC WRB VBP PRP VBG TO DT JJ . . CC TO VB . JJ UH . . . NN CC NN : CD PRP . 
+. . . . . . . . . . . . . . . . , . . . . . . . . . . . . . . . . . . . , . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . NN . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . , . . . . 
+NN NN VBP NN VBD PRP IN NN VBD DT NN CD NN . WRB JJ . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . CD NNS . . . . . . . . . . . . NN 
+RB VBD VBN NN NN IN PRP$ NN . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+PRP VBZ JJ . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+NN VBP PRP CC VB PRP . VB MD VB IN PRP . VBP RB VB JJ . . CC : JJ VBP PRP$ NN . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
