@@ -1,0 +1,8 @@
+
+Build Time =  18.40449595451355  s
+Traceback (most recent call last):
+  File "Viterbi_bigram_mp.py", line 217, in <module>
+    main()
+  File "Viterbi_bigram_mp.py", line 183, in main
+    tag_sequences[i] = lines[i].strip().split(" ")
+IndexError: list assignment index out of range

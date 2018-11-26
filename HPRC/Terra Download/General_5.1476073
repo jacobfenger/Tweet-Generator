@@ -1,0 +1,20 @@
+Viterbi_generalized.py:84: RuntimeWarning: invalid value encountered in true_divide
+  self.transitions[i] /= self.vocab_counts[i]
+Viterbi_generalized.py:88: RuntimeWarning: invalid value encountered in double_scalars
+  self.emissions[j][i] /= self.vocab_counts[i]
+
+Build Time =  18.092406749725342  s
+
+Total Time:  4102.025449037552  s
+Viterbi_generalized.py:84: RuntimeWarning: invalid value encountered in true_divide
+  self.transitions[i] /= self.vocab_counts[i]
+Viterbi_generalized.py:88: RuntimeWarning: invalid value encountered in double_scalars
+  self.emissions[j][i] /= self.vocab_counts[i]
+
+Build Time =  18.46668839454651  s
+Traceback (most recent call last):
+  File "Viterbi_generalized.py", line 220, in <module>
+    main()
+  File "Viterbi_generalized.py", line 211, in main
+    ofs.write(markov.recoverWord(tweet[i]) + " ")
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 0-1: ordinal not in range(128)

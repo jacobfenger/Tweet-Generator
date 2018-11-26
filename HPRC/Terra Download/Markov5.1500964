@@ -1,0 +1,11 @@
+
+Build Time =  1.1503722667694092  s
+Traceback (most recent call last):
+  File "Markov_mp.py", line 135, in <module>
+    main()
+  File "Markov_mp.py", line 123, in main
+    ofs.write(str(markov.generate_tweet(ele)) + "\n")
+  File "Markov_mp.py", line 88, in generate_tweet
+    result[i] = np.random.choice(self.vocab_size, replace=True, p=self.transitions[curr])
+  File "mtrand.pyx", line 1146, in mtrand.RandomState.choice
+ValueError: probabilities do not sum to 1

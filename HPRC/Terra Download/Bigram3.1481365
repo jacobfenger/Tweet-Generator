@@ -1,0 +1,6 @@
+
+Build Time =  8.148147583007812  s
+slurmstepd: error: Job 1481365 exceeded memory limit (28859728 > 20971520), being killed
+slurmstepd: error: Exceeded job memory limit
+slurmstepd: error: *** JOB 1481365 ON tgpu-0301 CANCELLED AT 2018-11-08T10:35:42 ***
+slurmstepd: error: Detected 65 oom-kill event(s) in step 1481365.batch cgroup. Some of your processes may have been killed by the cgroup out-of-memory handler.

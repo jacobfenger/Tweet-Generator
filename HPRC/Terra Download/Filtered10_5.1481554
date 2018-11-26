@@ -1,0 +1,35 @@
+Before filtering:  1494
+After filtering to  10  counts:  93
+
+Build Time =  0.06937384605407715  s
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/sw/eb/sw/Python/3.5.2-intel-2017A/lib/python3.5/random.py", line 253, in choice
+    i = self._randbelow(len(seq))
+  File "/sw/eb/sw/Python/3.5.2-intel-2017A/lib/python3.5/random.py", line 230, in _randbelow
+    r = getrandbits(k)          # 0 <= r < 2**k
+ValueError: number of bits must be greater than zero
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/sw/eb/sw/Python/3.5.2-intel-2017A/lib/python3.5/multiprocessing/pool.py", line 119, in worker
+    result = (True, func(*args, **kwds))
+  File "Viterbi_filtered_mp.py", line 192, in generate_tweet
+    word = rm.choice(self.tag_vocab[self.tags_states[sequence[i-1]]])
+  File "/sw/eb/sw/Python/3.5.2-intel-2017A/lib/python3.5/random.py", line 255, in choice
+    raise IndexError('Cannot choose from an empty sequence')
+IndexError: Cannot choose from an empty sequence
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "Viterbi_filtered_mp.py", line 238, in <module>
+    main()
+  File "Viterbi_filtered_mp.py", line 230, in main
+    for result in pool.imap(markov.generate_tweet, tag_sequences):
+  File "/sw/eb/sw/Python/3.5.2-intel-2017A/lib/python3.5/multiprocessing/pool.py", line 695, in next
+    raise value
+IndexError: Cannot choose from an empty sequence

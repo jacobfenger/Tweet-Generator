@@ -1,0 +1,17 @@
+Markov_trigram.py:83: RuntimeWarning: invalid value encountered in true_divide
+  self.transitions[i][j] /= self.pair_counts[i][j]
+Markov_trigram.py:83: RuntimeWarning: divide by zero encountered in true_divide
+  self.transitions[i][j] /= self.pair_counts[i][j]
+Markov_trigram.py:101: RuntimeWarning: invalid value encountered in less
+  result[i] = np.random.choice(self.vocab_size, replace=True, p=self.transitions[prev2][prev1])
+
+Build Time =  22.658663034439087  s
+Traceback (most recent call last):
+  File "Markov_trigram.py", line 143, in <module>
+    main()
+  File "Markov_trigram.py", line 131, in main
+    ofs.write(str(markov.generate_tweet(ele)) + "\n")
+  File "Markov_trigram.py", line 101, in generate_tweet
+    result[i] = np.random.choice(self.vocab_size, replace=True, p=self.transitions[prev2][prev1])
+  File "mtrand.pyx", line 1146, in mtrand.RandomState.choice
+ValueError: probabilities do not sum to 1

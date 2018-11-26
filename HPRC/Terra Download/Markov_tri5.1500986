@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "Markov_trigram.py", line 143, in <module>
+    main()
+  File "Markov_trigram.py", line 121, in main
+    markov.buildMarkov(words_file, num_tweets, length)
+  File "Markov_trigram.py", line 54, in buildMarkov
+    self.initialize(tweet_lines)
+  File "Markov_trigram.py", line 40, in initialize
+    self.transitions = np.zeros((self.vocab_size, self.vocab_size, self.vocab_size))
+MemoryError

@@ -1,0 +1,4 @@
+
+Build Time =  1.0685133934020996  s
+/var/spool/slurmd/job1500809/slurm_script: line 20: 43111 Killed                  python Markov_mp.py 5 10000
+slurmstepd: error: Detected 152 oom-kill event(s) in step 1500809.batch cgroup. Some of your processes may have been killed by the cgroup out-of-memory handler.

@@ -1,0 +1,1 @@
+/var/spool/slurmd/job1501045/slurm_script: line 20: 13222 Bus error               (core dumped) python Markov_trigram.py 5 1000

@@ -1,0 +1,5 @@
+
+Build Time =  2.045396566390991  s
+slurmstepd: error: Job 1481371 exceeded memory limit (11682568 > 10485760), being killed
+slurmstepd: error: *** JOB 1481371 ON tgpu-0303 CANCELLED AT 2018-11-08T10:45:43 ***
+slurmstepd: error: Exceeded job memory limit

@@ -1,0 +1,18 @@
+
+Build Time =  0.1025843620300293  s
+
+Total Time:  10.372969627380371  s
+
+Build Time =  0.09452700614929199  s
+Object =  56
+Transitions =  17904240
+Emissions =  466864
+Trellis =  71920
+BP =  71920
+Function =  64
+Traceback (most recent call last):
+  File "Viterbi_generalized_mp.py", line 220, in <module>
+    main()
+  File "Viterbi_generalized_mp.py", line 213, in main
+    ofs.write(result + "\n")
+TypeError: can only concatenate list (not "str") to list

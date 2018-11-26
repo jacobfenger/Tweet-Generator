@@ -1,0 +1,20 @@
+
+Build Time =  16.645485639572144  s
+Viterbi_generalized_mp.py:88: RuntimeWarning: invalid value encountered in true_divide
+  self.transitions[i] /= self.vocab_counts[i]
+Viterbi_generalized_mp.py:92: RuntimeWarning: invalid value encountered in double_scalars
+  self.emissions[j][i] /= self.vocab_counts[i]
+Traceback (most recent call last):
+  File "Viterbi_generalized_mp.py", line 206, in <module>
+    main()
+  File "Viterbi_generalized_mp.py", line 198, in main
+    for result in pool.imap(markov.generate_tweet, markov.tags):
+  File "/sw/eb/sw/Python/3.5.2-intel-2017A/lib/python3.5/multiprocessing/pool.py", line 695, in next
+    raise value
+  File "/sw/eb/sw/Python/3.5.2-intel-2017A/lib/python3.5/multiprocessing/pool.py", line 385, in _handle_tasks
+    put(task)
+  File "/sw/eb/sw/Python/3.5.2-intel-2017A/lib/python3.5/multiprocessing/connection.py", line 206, in send
+    self._send_bytes(ForkingPickler.dumps(obj))
+  File "/sw/eb/sw/Python/3.5.2-intel-2017A/lib/python3.5/multiprocessing/reduction.py", line 50, in dumps
+    cls(buf, protocol).dump(obj)
+OverflowError: cannot serialize a bytes object larger than 4 GiB

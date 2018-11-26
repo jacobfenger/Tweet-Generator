@@ -1,0 +1,9 @@
+
+Build Time =  16.57655143737793  s
+Viterbi_generalized_mp.py:88: RuntimeWarning: invalid value encountered in true_divide
+  self.transitions[i] /= self.vocab_counts[i]
+Viterbi_generalized_mp.py:92: RuntimeWarning: invalid value encountered in double_scalars
+  self.emissions[j][i] /= self.vocab_counts[i]
+slurmstepd: error: Job 1481019 exceeded memory limit (65119996 > 31457280), being killed
+slurmstepd: error: Exceeded job memory limit
+slurmstepd: error: *** JOB 1481019 ON tnxt-0428 CANCELLED AT 2018-11-07T17:45:06 ***

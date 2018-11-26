@@ -1,0 +1,10 @@
+
+Build Time =  0.35903048515319824  s
+b'oh'  b'no'  b'birding'  b'/1xtti'  
+b'que'  b'me'  b'muera'  b'?'  
+Traceback (most recent call last):
+  File "Viterbi_bigram_mp.py", line 195, in <module>
+    main()
+  File "Viterbi_bigram_mp.py", line 191, in main
+    print("\nTotal Time: ", (time_end-time_start), " s")
+NameError: name 'time_end' is not defined

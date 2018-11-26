@@ -1,0 +1,16 @@
+Viterbi_generalized_mp.py:88: RuntimeWarning: invalid value encountered in true_divide
+  self.transitions[i] /= self.vocab_counts[i]
+Viterbi_generalized_mp.py:92: RuntimeWarning: invalid value encountered in double_scalars
+  self.emissions[j][i] /= self.vocab_counts[i]
+
+Build Time =  18.640443325042725  s
+
+Total Time:  3952.6968870162964  s
+
+Build Time =  18.362390756607056  s
+Viterbi_generalized_mp.py:88: RuntimeWarning: invalid value encountered in true_divide
+  self.transitions[i] /= self.vocab_counts[i]
+Viterbi_generalized_mp.py:92: RuntimeWarning: invalid value encountered in double_scalars
+  self.emissions[j][i] /= self.vocab_counts[i]
+/var/spool/slurmd/job1480953/slurm_script: line 21: 46627 Killed                  python Viterbi_generalized_mp.py load 5
+slurmstepd: error: Detected 395 oom-kill event(s) in step 1480953.batch cgroup. Some of your processes may have been killed by the cgroup out-of-memory handler.

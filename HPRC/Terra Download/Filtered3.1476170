@@ -1,0 +1,40 @@
+
+Currently Loaded Modules:
+  1) GCCcore/6.3.0
+  2) icc/2017.1.132-GCC-6.3.0
+  3) ifort/2017.1.132-GCC-6.3.0
+  4) iccifort/2017.1.132-GCC-6.3.0
+  5) impi/2017.1.132-iccifort-2017.1.132-GCC-6.3.0
+  6) iimpi/2017A
+  7) imkl/2017.1.132-iimpi-2017A
+  8) intel/2017A
+  9) bzip2/1.0.6-GCCcore-6.3.0
+ 10) GMP/6.1.1-GCCcore-6.3.0
+ 11) libffi/3.2.1-GCCcore-6.3.0
+ 12) ncurses/6.0-GCCcore-6.3.0
+ 13) libreadline/7.0-GCCcore-6.3.0
+ 14) Tcl/8.6.6-GCCcore-6.3.0
+ 15) SQLite/3.15.2-GCCcore-6.3.0
+ 16) Tk/8.6.6-GCCcore-6.3.0-Python-3.5.2-bare
+ 17) expat/2.2.0-GCCcore-6.3.0
+ 18) libpng/1.6.26-GCCcore-6.3.0
+ 19) freetype/2.7-GCCcore-6.3.0
+ 20) fontconfig/2.12.1-GCCcore-6.3.0
+ 21) X11/20161215-GCCcore-6.3.0-Python-3.5.2-bare
+ 22) XZ/5.2.2-GCCcore-6.3.0
+ 23) Python/3.5.2-intel-2017A
+ 24) numpy/1.14.1-intel-2017A-Python-3.5.2
+
+
+
+Before filtering:  15840
+After filtering to 2 counts:  4831
+
+Build Time =  62.606205701828  s
+vocab size =  4834
+Traceback (most recent call last):
+  File "Viterbi_filtered.py", line 237, in <module>
+    main()
+  File "Viterbi_filtered.py", line 225, in main
+    ofs.write(tweet[i] + " ")
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 3-5: ordinal not in range(128)

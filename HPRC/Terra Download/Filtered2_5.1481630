@@ -1,0 +1,7 @@
+Before filtering:  29372
+After filtering to  2  counts:  9232
+
+Build Time =  238.19952082633972  s
+slurmstepd: error: Job 1481630 exceeded memory limit (12698692 > 10485760), being killed
+slurmstepd: error: Exceeded job memory limit
+slurmstepd: error: *** JOB 1481630 ON tgpu-0301 CANCELLED AT 2018-11-08T15:32:41 ***

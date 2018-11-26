@@ -1,0 +1,18 @@
+
+Build Time =  18.405786752700806  s
+Traceback (most recent call last):
+  File "Viterbi_bigram_mp.py", line 217, in <module>
+    main()
+  File "Viterbi_bigram_mp.py", line 187, in main
+    pool.map(markov.generate_tweet, tag_sequences)
+  File "/sw/eb/sw/Python/3.5.2-intel-2017A/lib/python3.5/multiprocessing/pool.py", line 260, in map
+    return self._map_async(func, iterable, mapstar, chunksize).get()
+  File "/sw/eb/sw/Python/3.5.2-intel-2017A/lib/python3.5/multiprocessing/pool.py", line 608, in get
+    raise self._value
+  File "/sw/eb/sw/Python/3.5.2-intel-2017A/lib/python3.5/multiprocessing/pool.py", line 385, in _handle_tasks
+    put(task)
+  File "/sw/eb/sw/Python/3.5.2-intel-2017A/lib/python3.5/multiprocessing/connection.py", line 206, in send
+    self._send_bytes(ForkingPickler.dumps(obj))
+  File "/sw/eb/sw/Python/3.5.2-intel-2017A/lib/python3.5/multiprocessing/reduction.py", line 50, in dumps
+    cls(buf, protocol).dump(obj)
+OverflowError: cannot serialize a bytes object larger than 4 GiB
