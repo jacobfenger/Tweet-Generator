@@ -95,8 +95,31 @@ class Markov:
   #  return None
   
   def topThree(self, transitions):
-    max = [transitions[0], transitions[1], transitions[2]]
-    max_i = [0, 1, 2]
+    max = []#[transitions[0], transitions[1], transitions[2]]
+    max_i = []#[0, 1, 2]
+    if transitions[0] >= transitions[1] and transitions[0] >= transitions[2]:
+      if transitions[1] >= transitions[2]:
+        max = [transitions[0], transitions[1], transitions[2]]
+        max_i = [0,1,2]
+      else:
+        max = [transitions[0], transitions[2], transitions[1]]
+        max_i = [0,2,1]
+    elif transitions[1] >= transitions[0] and transitions[2] >= transitions[1]:
+      if transitions[0] >= transitions[2]:
+        max = [transitions[1], transitions[0], transitions[2]]
+        max_i = [1,0,2]
+      else:
+        max = [transitions[1], transitions[2], transitions[0]]
+        max_i = [1,2,0]
+    else:
+      if transitions[0] >= transitions[1]:
+        max = [transitions[2], transitions[0], transitions[1]]
+        max_i = [2,0,1]
+      else:
+        max = [transitions[2], transitions[1], transitions[0]]
+        max_i = [2,1,0]
+    
+	
     for i in range(3, len(transitions)):
       if transitions[i] > max[0]:
         max[2] = max[1]

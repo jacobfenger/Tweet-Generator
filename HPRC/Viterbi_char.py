@@ -109,8 +109,8 @@ class Markov:
     pass
 	
   # Reversed Viterbi
-  def generate_tweet(self, sequence): #, n):
-      n = 20 # setting constant for mp
+  def generate_tweet(self, sequence, n):
+      #n = 20 # setting constant for mp
       trellis = np.zeros(( n + 1, self.seq_size))
       bp = np.zeros(( n + 1, self.seq_size))
       
@@ -136,28 +136,33 @@ class Markov:
               trellis[i][seq] = temp
               bp[i][seq] = j
               end_seq = seq
-          char = self.seq[end_seq][len(self.seq[end_seq])-1] # emission is last character in next sequence
-          char_i = self.chars.index(char)
-          trellis[i][seq] *= self.emissions[char_i][seq]
+          #char = self.seq[end_seq][len(self.seq[end_seq])-1] # emission is last character in next sequence
+          char = self.seq[seq][self.k-1] # emission is last character in next sequence
+          c = self.chars.index(char)
+          trellis[i][seq] *= self.emissions[c][seq]
 
       seq_max = -1
       vit_max = 0
-      recursion_end = self.seq[end_seq]
-      end_seq = recursion_end + [self.end_symbol]
-      end_seq.pop(0) # move window over
-      end = self.seq.index(end_seq)
+      #recursion_end = self.seq[end_seq]
+      #end_seq = recursion_end + [self.end_symbol]
+      #end_seq.pop(0) # move window over
+      #end = self.seq.index(end_seq)
       # Find best final seq in order to go backwards
       for seq in range(self.seq_size):
+        end_seq = self.seq[seq][1:] + [self.end_symbol]
+        end = self.seq.index(end_seq)
         if(trellis[n][seq]*self.transitions[seq][end] > vit_max):
           seq_max = seq
           vit_max = trellis[n][seq]*self.transitions[seq][end]
 		  
       result = [" " for x in range(n)]
       i = n
-      s = seq_max
-      if s == -1: # 0 probability of end_seq -> end_symbol
+      s = np.random.choice(self.seq)#seq_max
+      while self.start_symbol in self.seq[s]:
+        s = np.random.choice(self.seq)#seq_max
+      #if s == -1: # 0 probability of end_seq -> end_symbol
         # Just go back from the last character generated
-        s = self.seq.index(recursion_end)
+      #  s = self.seq.index(recursion_end)
       while i > 0:
         result[i-1] = self.seq[s][self.k-1]
         s = int(bp[i][s])
@@ -186,10 +191,11 @@ def main():
     
     #result = markov.generate_tweet(["i", " ", "w", "a", "n"], 5)
     #print(result)
-    #result = markov.generate_tweet(["i"], 10)
-    #print(result)
+    result = markov.generate_tweet(["i"], 10)
+    print(result)
     #for char in markov.chars:
-    #  result = markov.generate_tweet([char], 5)
+    #for ascii in range(97, 122+1): #a - z
+    #  result = markov.generate_tweet([chr(ascii)], 5)
     #  print(result)
     #result = markov.generate_tweet(["a", "b", "c"], 5)
     #print(result)
@@ -202,10 +208,10 @@ def main():
       sequence = [chr(ascii)]
       starting_chars.append(sequence)
 		  
-    pool = mp.Pool(processes = 8)
-    with open(output_file, "w", encoding='utf-8') as ofs:
-      for result in pool.imap(markov.generate_tweet, starting_chars):
-        ofs.write(str(result) + "\n")
+    #pool = mp.Pool(processes = 8)
+    #with open(output_file, "w", encoding='utf-8') as ofs:
+    #  for result in pool.imap(markov.generate_tweet, starting_chars):
+    #    ofs.write(str(result) + "\n")
     	  	
   time_end = time.time()
   print("\nTotal Time: ", (time_end-time_start), " s")
