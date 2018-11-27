@@ -1,0 +1,208 @@
+INFO: activate-gcc_linux-64.sh made the following environmental changes:
++CC=/sw/hprc/sw/Anaconda/3-5.0.0.1-new/envs/keras-gpu-2.0.5/bin/x86_64-conda_cos6-linux-gnu-cc
++CFLAGS=-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -pipe
++CPP=/sw/hprc/sw/Anaconda/3-5.0.0.1-new/envs/keras-gpu-2.0.5/bin/x86_64-conda_cos6-linux-gnu-cpp
++CPPFLAGS=-DNDEBUG -D_FORTIFY_SOURCE=2 -O2
++DEBUG_CFLAGS=-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -pipe
++DEBUG_CPPFLAGS=-D_DEBUG -D_FORTIFY_SOURCE=2 -Og
++GCC=/sw/hprc/sw/Anaconda/3-5.0.0.1-new/envs/keras-gpu-2.0.5/bin/x86_64-conda_cos6-linux-gnu-gcc
++GCC_AR=/sw/hprc/sw/Anaconda/3-5.0.0.1-new/envs/keras-gpu-2.0.5/bin/x86_64-conda_cos6-linux-gnu-gcc-ar
++GCC_NM=/sw/hprc/sw/Anaconda/3-5.0.0.1-new/envs/keras-gpu-2.0.5/bin/x86_64-conda_cos6-linux-gnu-gcc-nm
++GCC_RANLIB=/sw/hprc/sw/Anaconda/3-5.0.0.1-new/envs/keras-gpu-2.0.5/bin/x86_64-conda_cos6-linux-gnu-gcc-ranlib
++HOST=x86_64-conda_cos6-linux-gnu
++LDFLAGS=-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now
++_CONDA_PYTHON_SYSCONFIGDATA_NAME=_sysconfigdata_x86_64_conda_cos6_linux_gnu
+INFO: activate-binutils_linux-64.sh made the following environmental changes:
++ADDR2LINE=/sw/hprc/sw/Anaconda/3-5.0.0.1-new/envs/keras-gpu-2.0.5/bin/x86_64-conda_cos6-linux-gnu-addr2line
++AR=/sw/hprc/sw/Anaconda/3-5.0.0.1-new/envs/keras-gpu-2.0.5/bin/x86_64-conda_cos6-linux-gnu-ar
++AS=/sw/hprc/sw/Anaconda/3-5.0.0.1-new/envs/keras-gpu-2.0.5/bin/x86_64-conda_cos6-linux-gnu-as
++CXXFILT=/sw/hprc/sw/Anaconda/3-5.0.0.1-new/envs/keras-gpu-2.0.5/bin/x86_64-conda_cos6-linux-gnu-c++filt
++ELFEDIT=/sw/hprc/sw/Anaconda/3-5.0.0.1-new/envs/keras-gpu-2.0.5/bin/x86_64-conda_cos6-linux-gnu-elfedit
++GPROF=/sw/hprc/sw/Anaconda/3-5.0.0.1-new/envs/keras-gpu-2.0.5/bin/x86_64-conda_cos6-linux-gnu-gprof
++LD=/sw/hprc/sw/Anaconda/3-5.0.0.1-new/envs/keras-gpu-2.0.5/bin/x86_64-conda_cos6-linux-gnu-ld
++LD_GOLD=/sw/hprc/sw/Anaconda/3-5.0.0.1-new/envs/keras-gpu-2.0.5/bin/x86_64-conda_cos6-linux-gnu-ld.gold
++NM=/sw/hprc/sw/Anaconda/3-5.0.0.1-new/envs/keras-gpu-2.0.5/bin/x86_64-conda_cos6-linux-gnu-nm
++OBJCOPY=/sw/hprc/sw/Anaconda/3-5.0.0.1-new/envs/keras-gpu-2.0.5/bin/x86_64-conda_cos6-linux-gnu-objcopy
++OBJDUMP=/sw/hprc/sw/Anaconda/3-5.0.0.1-new/envs/keras-gpu-2.0.5/bin/x86_64-conda_cos6-linux-gnu-objdump
++RANLIB=/sw/hprc/sw/Anaconda/3-5.0.0.1-new/envs/keras-gpu-2.0.5/bin/x86_64-conda_cos6-linux-gnu-ranlib
++READELF=/sw/hprc/sw/Anaconda/3-5.0.0.1-new/envs/keras-gpu-2.0.5/bin/x86_64-conda_cos6-linux-gnu-readelf
++SIZE=/sw/hprc/sw/Anaconda/3-5.0.0.1-new/envs/keras-gpu-2.0.5/bin/x86_64-conda_cos6-linux-gnu-size
++STRINGS=/sw/hprc/sw/Anaconda/3-5.0.0.1-new/envs/keras-gpu-2.0.5/bin/x86_64-conda_cos6-linux-gnu-strings
++STRIP=/sw/hprc/sw/Anaconda/3-5.0.0.1-new/envs/keras-gpu-2.0.5/bin/x86_64-conda_cos6-linux-gnu-strip
+INFO: activate-gxx_linux-64.sh made the following environmental changes:
++CXX=/sw/hprc/sw/Anaconda/3-5.0.0.1-new/envs/keras-gpu-2.0.5/bin/x86_64-conda_cos6-linux-gnu-c++
++CXXFLAGS=-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -pipe
++DEBUG_CXXFLAGS=-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -pipe
++GXX=/sw/hprc/sw/Anaconda/3-5.0.0.1-new/envs/keras-gpu-2.0.5/bin/x86_64-conda_cos6-linux-gnu-g++
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcublas.so.7.5 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcudnn.so.5 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcufft.so.7.5 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcuda.so.1 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcurand.so.7.5 locally
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:885] Found device 0 with properties: 
+name: Tesla K80
+major: 3 minor: 7 memoryClockRate (GHz) 0.6405
+pciBusID 0000:83:00.0
+Total memory: 11.92GiB
+Free memory: 11.82GiB
+W tensorflow/stream_executor/cuda/cuda_driver.cc:590] creating context when one is currently active; existing: 0x558fb109b160
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:885] Found device 1 with properties: 
+name: Tesla K80
+major: 3 minor: 7 memoryClockRate (GHz) 0.6405
+pciBusID 0000:84:00.0
+Total memory: 11.92GiB
+Free memory: 11.84GiB
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:906] DMA: 0 1 
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:916] 0:   Y Y 
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:916] 1:   Y Y 
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: Tesla K80, pci bus id: 0000:83:00.0)
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:1) -> (device: 1, name: Tesla K80, pci bus id: 0000:84:00.0)
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: Tesla K80, pci bus id: 0000:83:00.0)
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:1) -> (device: 1, name: Tesla K80, pci bus id: 0000:84:00.0)
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:247] PoolAllocator: After 3232 get requests, put_count=2664 evicted_count=1000 eviction_rate=0.375375 and unsatisfied allocation rate=0.516089
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:259] Raising pool_size_limit_ from 100 to 110
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:247] PoolAllocator: After 3406 get requests, put_count=2943 evicted_count=1000 eviction_rate=0.339789 and unsatisfied allocation rate=0.434527
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:259] Raising pool_size_limit_ from 193 to 212
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:247] PoolAllocator: After 3830 get requests, put_count=4607 evicted_count=2000 eviction_rate=0.434122 and unsatisfied allocation rate=0.328982
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:259] Raising pool_size_limit_ from 409 to 449
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:247] PoolAllocator: After 3521 get requests, put_count=3999 evicted_count=1000 eviction_rate=0.250063 and unsatisfied allocation rate=0.175234
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:259] Raising pool_size_limit_ from 1053 to 1158
+starting of the file
+/gpu:0
+imports done
+Total number of characters:  108642445
+Total number of unique characters:  150
+Number of sequences: 36214135 
+
+["/2y1zl - awww, that's a bummer. you shou", "1zl - awww, that's a bummer. you shoulda", " - awww, that's a bummer. you shoulda go", "awww, that's a bummer. you shoulda got d", "w, that's a bummer. you shoulda got davi", "that's a bummer. you shoulda got david c", "t's a bummer. you shoulda got david carr", ' a bummer. you shoulda got david carr of', 'bummer. you shoulda got david carr of th', 'mer. you shoulda got david carr of third'] 
+
+['l', ' ', 't', 'a', 'd', 'a', ' ', ' ', 'i', ' ']
+40
+108642445
+150
+Epoch 1/15
+Hello
+
+----- Generating text after Epoch: 0
+40
+108642445
+150
+----- diversity: 0.2
+----- Generating with seed: "so late and now i am tired and its tuesd"
+so late and now i am tired and its tuesd i don't seep it and it is still i want to still i want to bed and it some to do but i was the be and it me the but i miss and it and my not i was the be the be this is some to with the but it and the pick to get and the but i have to steep i with this is and it me not but i with the seed to get to get i with the not i was the hate to still  i can't still not i can't still  i want to do but i get 
+----- diversity: 0.5
+----- Generating with seed: "so late and now i am tired and its tuesd"
+so late and now i am tired and its tuesd i me the got i watchen it and in i have it me back to at me i mad some not some pleed  asting a how not stack  i stint to lite me this me is having it it well i mack to the to couring to the be not a reapite in bed and that comen i got a hope that and ame bad is the have to stact to still don't steep at is to get to got i want read  i miss in the miss to feel but i with to do i hate to be i'm so 
+----- diversity: 1.0
+----- Generating with seed: "so late and now i am tired and its tuesd"
+so late and now i am tired and its tuesdail moainter  is lempy feridough, wook tereen to the ti/d in rest the htint now  bo.comrg is xucebl i has a midnme!! i ablinn eosed now.  don't neink. ..i read lekegn's to stand the  jught no vire not time ..ixsorg incrud!!!!!!!!    dian  i'm it a has up sean woll  sartare  hove read ever for &quot;catt. at bat i stad a morkitammint being to whing to of.. is eving togerhy thit it ofds blising not 
+----- diversity: 1.2
+----- Generating with seed: "so late and now i am tired and its tuesd"
+so late and now i am tired and its tuesd thesemive... lo off on  gaingot to promebd cn't dyed you?? fic tomayobe mooedd ton. i'm withh tharn h. whund &pp -fmmfund... i'm and @uxte misin and whets efnight. i! am wobnorh weet i hang it ie cat itay,  moriinginn. a1bthisg juck? i is jeennted tome  hothapr thiw las thrnw. eahoni. ... been korr nd i' is hamprues fay ips on a fict tiwes ffane a noo faiaking..nod and reating tu kt. bee  con my 
+Epoch 00000: loss improved from inf to 2.31195, saving model to weights.hdf5
+73s - loss: 2.3119
+Epoch 2/15
+Hello
+
+----- Not generating text after Epoch: 1
+Epoch 00001: loss improved from 2.31195 to 1.91467, saving model to weights.hdf5
+43s - loss: 1.9147
+Epoch 3/15
+Hello
+
+----- Not generating text after Epoch: 2
+Epoch 00002: loss improved from 1.91467 to 1.79044, saving model to weights.hdf5
+43s - loss: 1.7904
+Epoch 4/15
+Hello
+
+----- Not generating text after Epoch: 3
+Epoch 00003: loss improved from 1.79044 to 1.71526, saving model to weights.hdf5
+43s - loss: 1.7153
+Epoch 5/15
+Hello
+
+----- Not generating text after Epoch: 4
+Epoch 00004: loss improved from 1.71526 to 1.66050, saving model to weights.hdf5
+43s - loss: 1.6605
+Epoch 6/15
+Hello
+
+----- Not generating text after Epoch: 5
+Epoch 00005: loss improved from 1.66050 to 1.62016, saving model to weights.hdf5
+43s - loss: 1.6202
+Epoch 7/15
+Hello
+
+----- Not generating text after Epoch: 6
+Epoch 00006: loss improved from 1.62016 to 1.58666, saving model to weights.hdf5
+43s - loss: 1.5867
+Epoch 8/15
+Hello
+
+----- Not generating text after Epoch: 7
+Epoch 00007: loss improved from 1.58666 to 1.56069, saving model to weights.hdf5
+43s - loss: 1.5607
+Epoch 9/15
+Hello
+
+----- Not generating text after Epoch: 8
+Epoch 00008: loss improved from 1.56069 to 1.54353, saving model to weights.hdf5
+43s - loss: 1.5435
+Epoch 10/15
+Hello
+
+----- Not generating text after Epoch: 9
+Epoch 00009: loss improved from 1.54353 to 1.52020, saving model to weights.hdf5
+43s - loss: 1.5202
+Epoch 11/15
+Hello
+
+----- Not generating text after Epoch: 10
+Epoch 00010: loss improved from 1.52020 to 1.50853, saving model to weights.hdf5
+43s - loss: 1.5085
+Epoch 12/15
+Hello
+
+----- Not generating text after Epoch: 11
+Epoch 00011: loss improved from 1.50853 to 1.49654, saving model to weights.hdf5
+43s - loss: 1.4965
+Epoch 13/15
+Hello
+
+----- Not generating text after Epoch: 12
+Epoch 00012: loss improved from 1.49654 to 1.48251, saving model to weights.hdf5
+43s - loss: 1.4825
+Epoch 14/15
+Hello
+
+----- Not generating text after Epoch: 13
+Epoch 00013: loss improved from 1.48251 to 1.47023, saving model to weights.hdf5
+43s - loss: 1.4702
+Epoch 15/15
+Hello
+
+----- Generating text after Epoch: 14
+40
+108642445
+150
+----- diversity: 0.2
+----- Generating with seed: " sleep and its 3:40 am in melbourne ! i "
+ sleep and its 3:40 am in melbourne ! i have to see the fact the pain  i have to go to hear that is still a long to the news this is the same the news the and  i have to stop.  i have to see you don't get it  the posthing  i was the poster the same and i have to go to hear they have to go to the news this is the same of the poster i have to go to go to stay  i have to see the only me up and i wont here and i have to see the rain to stay
+----- diversity: 0.5
+----- Generating with seed: " sleep and its 3:40 am in melbourne ! i "
+ sleep and its 3:40 am in melbourne ! i still so sadd. some please back the news and it wont down may to let my be  morning  has to get to post the posther links it all the decill to stay i just know i was great a howered that i have to go to let my best at the matted i'm sooooooo   the new is still a have the planing a long the spaty  i saw me morning on my over he don't get a concention to nothing i don't dinner is done in the secance
+----- diversity: 1.0
+----- Generating with seed: " sleep and its 3:40 am in melbourne ! i "
+ sleep and its 3:40 am in melbourne ! i said but?? amabling some sprain bace is stramasil gat untll bed...i door ef maybout wookeped and appeace  setcedthore just soon for a jates, trafuse? what all till thought yos, i don't go to rear  as sorry termisicout ng tech in than sun all yet. sail sphope to the falp playing to sleep. kucked the grat form, on and then one updateink, it's in job vety eprstic same my saked. docoant   i even good 
+----- diversity: 1.2
+----- Generating with seed: " sleep and its 3:40 am in melbourne ! i "
+ sleep and its 3:40 am in melbourne ! i was won'ted covere, fper or : on everything, and mysmgina (sower poop-y! i must working  dang some anteredmorn , favining is week. whlte at ltce yes puin  as my naves on  veasires that the computty rerains!!!! i sooo peoptch..nopets uspassite stulffulmat: holll (where's working legse. sadchans away...i don't get the tognre in tear very today? haha fakil!! whether over staying 2?a'm the 10 3galbe tUsing TensorFlow backend.
+
+Epoch 00014: loss improved from 1.47023 to 1.45979, saving model to weights.hdf5
+72s - loss: 1.4598
