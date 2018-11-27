@@ -1,0 +1,8 @@
+. . . . . . . . . . . . . . NN CC NN : VB . . . . . . . . . NN : NN , . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . : 
+NN . VB NN . NN NN NN . NN NN . , NN . DT . JJ NN . DT . . JJ NN . JJ NN . DT NN NN . JJ NN NN . . . NN NN . JJ NN NN NN . NN NN . JJ VBP NNS . NN NN . JJ NN . NN NN . JJ NN NN . JJ NN NN 
+. . . . . . . . . . . . . . . . . . . . . , . . . . . . . . . . . . . . . . . JJ : . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+CD JJR NN . . . . . . . . . . . . . . . . CC JJ NN CC NN CC PRP VBP RP RB . . . . . . . . . . . . . . . . . . . . . . . . . . . . . NN . . . . . . . . . . . 
+JJ NNP NNP NNP NNP NNP NNP NNP NNP NNP NNP . NN . VB NN . VB . JJ NN NNP NNP NNP NNP NNP NNP NNP NNP NNP NNP NNP NNP NNP NNP NNP NNP NNP NNP NNP NNP NNP NNP . NNP NNP NNP . NNP NNP NNP NNP NNP NNP NNP NNP NNP NNP NNP NNP NNP NNP . NNP NNP NNP NNP NNP . NN 
+NN . JJ NN NNP NNP NNP . NN . VB . VB . VB NN . JJ NN NNP NNP NNP NNP NNP NNP . NNP NNP NNP NNP NNP . NNP NNP NNP NNP . NNP NNP NNP NNP . NN . JJ NN NNP NNP NNP NNP . NNP NNP NNP NNP NNP NNP . NNP NNP NNP NNP NNP NNP NNP NNP NNP NNP NNP . 
+JJ NNP NNP NNP NNP NNP NNP NNP NNP NNP . NNP NNP NNP . NNP NNP NNP NNP NNP NNP NNP NNP NNP NNP NNP NNP NNP NNP . NNP NNP NNP NNP . . CC NN : NNS VBP NNS CC NN NNS CC NN : NN : NN NN . VB . JJ NN NNP NNP NNP NNP NNP NNP NNP NNP NNP NNP NNP NNP . 
+NN . . . NN RB VBD JJ . . . . . . . . . . . . . . . . . . . . . . . . . JJ VBG TO PRP RB RB . . . . . . . . . . . . . . . . . . . NN . NN . . . . . . . . . 

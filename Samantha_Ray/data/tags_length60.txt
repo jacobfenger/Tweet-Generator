@@ -1,0 +1,14 @@
+( NN NN . JJ NN VBD CD NN NN . DT NN . NN NN . . NN ( JJ NN . JJ NN . NN NN . NN NN . JJ VBP NN NN . VB NN . NN NN . NN . JJ NN NN . NN . NN . . JJ NN NN . : NN 
+: NN : . CD JJ , RB : : : : VBZ NNP CD NN NN JJ NN NN NN CC NN : JJ '' JJ NNS : : : ( MD RB ) CC NN : CC NN : CC NN : CC NN : CC CC NN : CC NN : CC NN : CC NN : 
+NN NN . VB NN . VB NN . VB NN . VB . VB . VB NN . JJ NN NN . VB . JJ NN NNP . VB JJ NNP NNP NNP NNP . NNP NNP NNP NNP NNP NNP . NN . VB . JJ NN NNP NNP NNP . NN . VB . VB . NN 
+NN VBP RB JJ . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . JJ JJ NN . 
+WRB VBD VB RB VB PRP VBD DT NN . . . WP DT NN . . . . NN : NN VBP PRP JJ NN . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . VB . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+IN VBN VBP VBG IN NN CD , VBP RB : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : : CC NN : 
+. . VB . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . IN NN NN MD VB JJ NN NN RB 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . , . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . NN 
+NN : JJ NN NN . RB RB RB ( VB DT NN ) , . . . . . . . . . . . . . . . . . , . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+JJ NNP NNP NNP NNP NNP NNP NNP NNP NNP . NNP NNP NNP . NN : CC VB . VB NN . JJ NN NNP NNP NNP . NN . JJ NN NN . JJ NN NNP NNP NNP . NN NN . JJ NN NNP NNP NNP NNP . VB . VB . VB . JJ NN NN 
+NN VBP PRP CC VB PRP . VB MD RB VB IN PRP . VBP RB VB JJ . . CC : JJ VBP PRP$ NN . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+JJ NN NN . JJ VBP JJ NNS VBP JJ NNP NNP VBZ NNP NNP NNP NNP VBD CD JJ NN NNP NNP NN NNP NNP VBZ FW NN NN NN NN NNP NNP NN NNP NNP NN NNP NNP NNP NNP NN NNP . JJ NN NN , NN NNS VBP JJ NN NN NNP NNP RB CD NNS 

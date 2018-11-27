@@ -12,13 +12,9 @@ import itertools
 	
 class Markov:
   def __init__(self, k):
-    #self.chars_states = {} # map char to index in transitions and emissions
     self.transitions = []  # 2D array - prob that sequence of chars follows a sequence of chars ( each length k )
-    #self.seq_counts = []   # 1D array - counts of each sequence occurence
     self.seq = []          # vocab of sequences
     self.chars = []        # vocab of chars
-    #self.seq_size = 0      # size of sequences
-    #self.chars_size = 0    # size of chars
     self.k = k             # length of sequences for transition states
 	
   def initialize(self, tweet_lines):
@@ -27,22 +23,14 @@ class Markov:
       for char in line:
         if char not in self.chars: #and char != "":
           self.chars += char
-          #self.chars_states[char] = self.chars_size
-          #self.chars_size += 1
     
     # Build sequence vocab from char vocab
     product = list(itertools.product(self.chars, repeat=self.k))
     for tuple in product:
       self.seq.append(list(tuple))
-    #self.seq_size = len(self.seq)
-    #print(self.seq)
 	
     # Transitions: ABC -> D (BCD | ABC)
     self.transitions = np.zeros((len(self.seq), len(self.chars)))
-    #self.transitions = np.zeros((self.seq_size, self.chars_size))
-    #print(self.transitions)
-    # Counts of sequences
-    #self.seq_counts = np.zeros(self.seq_size)
     pass
 	
   def buildMarkov(self, tweet_file, num_tweets):
@@ -77,22 +65,8 @@ class Markov:
 		  
           prev_seq = curr_seq
           prev = curr
-	
-    #print(self.seq[0:10])
-    #for i in range(10):
-    #  print(self.transitions[i][0:10])
-    #self.transitions += 1
-    #for i in range(self.seq_size):
-    #  self.transitions[i] /= np.sum(self.transitions[i])#self.seq_counts[i]
-    #print(self.transitions)
-	
+		
     pass
-	
-  #def recoverChar(self, index):
-  #  for c in self.chars:
-  #    if(self.chars_states[c] == index):
-  #      return c
-  #  return None
   
   def topThree(self, transitions):
     max = []#[transitions[0], transitions[1], transitions[2]]

@@ -13,9 +13,6 @@ import itertools
 class Markov:
   def __init__(self, k):
     self.transitions = []  # 2D array - prob that sequence of chars follows a sequence of chars ( each length k )
-    self.emissions = []    # 2D array - prob of char given preceding sequence
-    self.seq_counts = []   # 1D array - counts of each sequence occurence
-    self.char_counts = []  # 1D array - counts of each char occurence
     self.seq = []          # vocab of sequences
     self.chars = []        # vocab of chars
     self.seq_size = 0      # size of sequences
@@ -40,14 +37,8 @@ class Markov:
       self.seq.append(list(tuple))
     self.seq_size = len(self.seq)
     
-    # Transitions: BCD | ABC
-    self.transitions = np.zeros((self.seq_size, self.seq_size))
-    # Emissions: D | ABC
-    self.emissions = np.zeros((self.chars_size, self.seq_size))
-    # Counts of chars
-    self.chars_counts = np.zeros(self.chars_size)
-    # Counts of sequences
-    self.seq_counts = np.zeros(self.seq_size)
+    # Transitions: D | ABC
+    self.transitions = np.zeros((self.seq_size, self.chars_size))
     pass
 	
   def buildMarkov(self, tweet_file, num_tweets):
@@ -67,102 +58,67 @@ class Markov:
         prev_seq += [line[0]]
         prev = self.seq.index(prev_seq)
         
-        self.seq_counts[prev] += 1
-        self.chars_counts[self.chars.index(self.start_symbol)] += self.k - 1
-        self.chars_counts[self.chars.index(line[0])] += 1
-        
         for i in range(1, len(line)):
           # Move window over to next sequence
           curr_char = line[i]
-          curr_seq = prev_seq + [curr_char]
-          prev_char = curr_seq.pop(0)
-          curr = self.seq.index(curr_seq)
+          next_seq = prev_seq + [curr_char]
+          prev_char = next_seq.pop(0)
+          next = self.seq.index(next_seq)
+          curr = self.chars.index(curr_char)
           
-          self.transitions[prev][curr] += 1
-          self.emissions[self.chars.index(curr_char)][curr] += 1
-          self.seq_counts[curr] += 1
-          self.chars_counts[self.chars.index(curr_char)] += 1
-		  
-          prev_seq = curr_seq
-          prev = curr
+          self.transitions[prev][curr] += 1		  
+          prev_seq = next_seq
+          prev = next
 
         # Ending sequence
         curr_char = self.end_symbol
-        curr_seq = prev_seq + [curr_char]
-        prev_char = curr_seq.pop(0)
-        curr = self.seq.index(curr_seq)
+        curr = self.chars.index(curr_char)
           
         self.transitions[prev][curr] += 1
-        self.emissions[self.chars.index(curr_char)][curr] += 1
-        self.seq_counts[curr] += 1
-        self.chars_counts[self.chars.index(curr_char)] += 1
 		
     for i in range(self.seq_size):
-      if self.seq_counts[i] != 0:
-        self.transitions[i] /= self.seq_counts[i]
-	
-    for i in range(self.chars_size):
-      for j in range(self.seq_size):
-        if self.seq_counts[j] != 0:
-          self.emissions[i][j] /= self.seq_counts[j]
-		
+      sum = np.sum(self.transitions[i])
+      if sum != 0:
+        self.transitions[i] /= sum		
     pass
 	
   # Reversed Viterbi
-  def generate_tweet(self, sequence, n):
-      #n = 20 # setting constant for mp
+  def generate_tweet(self, sequence, n, random):
+      #n = 8 # setting constant for mp
       trellis = np.zeros(( n + 1, self.seq_size))
       bp = np.zeros(( n + 1, self.seq_size))
       
       # Build start sequence
-      start_seq = [self.start_symbol] + sequence
-      special = 1 # how many special symbols are in the starting sequence
-      if len(sequence) >= self.k: # trim down to k-1 length
-        start_seq = [self.start_symbol] + sequence[-(self.k-1):]
-      elif len(sequence) < self.k-1:
-        start_seq = [self.start_symbol for x in range(self.k - len(sequence))] + sequence
-        special = self.k - len(sequence)
+      start_seq = [self.start_symbol for x in range(self.k-1)] + sequence
       start = self.seq.index(start_seq)
-      
       trellis[0][start] = 1 # Initialize
 	
       #"Recursion"
-      end_seq = -1
       for i in range(1, n + 1):
-        for seq in range(self.seq_size):
+        for char in range(self.chars_size):
           for j in range(self.seq_size):
-            temp = trellis[i-1][j] * self.transitions[j][seq]
-            if(temp > trellis[i][seq] and self.end_symbol not in self.seq[seq]):
-              trellis[i][seq] = temp
-              bp[i][seq] = j
-              end_seq = seq
-          #char = self.seq[end_seq][len(self.seq[end_seq])-1] # emission is last character in next sequence
-          char = self.seq[seq][self.k-1] # emission is last character in next sequence
-          c = self.chars.index(char)
-          trellis[i][seq] *= self.emissions[c][seq]
+            seq = self.seq[j][1:] + [self.chars[char]]
+            s = self.seq.index(seq)
+            temp = trellis[i-1][j] * self.transitions[j][char]
+            if(temp > trellis[i][s] and self.end_symbol not in seq):
+              trellis[i][s] = temp
+              bp[i][s] = j
 
+      # Find best final seq in order to go backwards
       seq_max = -1
       vit_max = 0
-      #recursion_end = self.seq[end_seq]
-      #end_seq = recursion_end + [self.end_symbol]
-      #end_seq.pop(0) # move window over
-      #end = self.seq.index(end_seq)
-      # Find best final seq in order to go backwards
+      #end = self.chars.index(self.end_symbol)#self.chars.index(end_char)
+      end = self.chars.index(self.end_symbol)
+      if random == True:
+        end = np.random.randint(low=2, high=self.chars_size)
       for seq in range(self.seq_size):
-        end_seq = self.seq[seq][1:] + [self.end_symbol]
-        end = self.seq.index(end_seq)
-        if(trellis[n][seq]*self.transitions[seq][end] > vit_max):
-          seq_max = seq
-          vit_max = trellis[n][seq]*self.transitions[seq][end]
+          if(trellis[n][seq]*self.transitions[seq][end] > vit_max):
+            seq_max = seq
+            vit_max = trellis[n][seq]*self.transitions[seq][end]
 		  
       result = [" " for x in range(n)]
       i = n
-      s = np.random.choice(self.seq)#seq_max
-      while self.start_symbol in self.seq[s]:
-        s = np.random.choice(self.seq)#seq_max
-      #if s == -1: # 0 probability of end_seq -> end_symbol
-        # Just go back from the last character generated
-      #  s = self.seq.index(recursion_end)
+      s = seq_max 
       while i > 0:
         result[i-1] = self.seq[s][self.k-1]
         s = int(bp[i][s])
@@ -171,6 +127,7 @@ class Markov:
       tweet = str(start_seq[len(start_seq)-1])
       for char in result:
         tweet += char
+      #tweet += end_char
       return tweet
       
 
@@ -178,35 +135,24 @@ def main():
   time_start = time.time()
   (options, args) = getopt.getopt(sys.argv[1:], '')
     
-  if len(args) == 3: # sequence length, num tweets, k
+  if len(args) == 5 or len(args) == 6: # sequence length, num tweets, k, start_char, output length, random (optional)
     length = int(args[0])
     num_tweets = int(args[1])
     k = int(args[2])
+    start_char = args[3]
+    output_length = int(args[4])
+    random = False
+    if len(args) == 6:
+      random = True
     words_file = "words_length" + str(length) + ".txt"
-    output_file = "CharOut_length" + str(length) + "_size" + str(num_tweets) + "_k" + str(k) + ".txt"
+    #output_file = "CharOut_length" + str(length) + "_size" + str(num_tweets) + "_k" + str(k) + ".txt"
 	
     markov = Markov(k)
     markov.buildMarkov(words_file, num_tweets)
     print("\nBuild Time = ", (time.time() - time_start), " s")
-    
-    #result = markov.generate_tweet(["i", " ", "w", "a", "n"], 5)
-    #print(result)
-    result = markov.generate_tweet(["i"], 10)
+   
+    result = markov.generate_tweet([start_char], output_length, random)
     print(result)
-    #for char in markov.chars:
-    #for ascii in range(97, 122+1): #a - z
-    #  result = markov.generate_tweet([chr(ascii)], 5)
-    #  print(result)
-    #result = markov.generate_tweet(["a", "b", "c"], 5)
-    #print(result)
-    #result = markov.generate_tweet(["a", "b", "c"], 6)
-    #print(result)
-    #result = markov.generate_tweet(["a", "b", "c"], 7)
-    #print(result)
-    starting_chars = []
-    for ascii in range(97, 122+1): #a - z
-      sequence = [chr(ascii)]
-      starting_chars.append(sequence)
 		  
     #pool = mp.Pool(processes = 8)
     #with open(output_file, "w", encoding='utf-8') as ofs:

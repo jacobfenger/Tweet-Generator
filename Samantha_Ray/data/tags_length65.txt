@@ -1,0 +1,5 @@
+JJ NN : JJ CC NN : CC CC NN : CD NN CC NN : CC CC NN : VB JJR CC NN : NN : CC NN : NNS CC NN : CC CC NN : CC CD CC NN : NNP VBP CC VBP : CC NN : CC . NN . NN , JJ VBP JJ . . CC NN : 
+NNS VBP , VBZ VB , CC NN : CC VB . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . JJ NN IN NN 
+RB PDT DT NN NN . . . . . . . . . . . . . . . . . . . . , . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . CD . . . . . CD . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+NNS , RB JJ . CC VB DT CD NNS : CC NN : CC CC NN : CC NN : CC NN : NN CC NN : , CC NN : CC CC NN : CC NN : CC NN : NN CC NN : , CC NN : CC CC NN : CC NN : CC NN : NN CC NN : . 

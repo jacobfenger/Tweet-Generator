@@ -1,0 +1,15 @@
+NN NN RB VB IN . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . NN : : : NN NN IN PRP$ NN NN RB VBP PRP . . . 
+NN . JJ NN . UH NN . , NN . NN NN . DT NN . NN NN NN NN . JJ NN . . NN , NN NN NN NN . NN , NN . NN NN . JJ NN . RB . VB CD NN . UH , JJ NN NN CD NN NN . JJ VBP NN . NN 
+CD JJ NNS IN PRP TO VB : NNP : ) : SYM : ) : SYM : ) : SYM : ) : SYM : ) : SYM : ) : SYM : ) : SYM : ) : SYM : ) : SYM : ) : SYM : ) : SYM : ) : VBP RB VBN TO VB DT NN 
+NNS VBP JJ NNS . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+NN : CC NN : JJ VBP PRP IN NN NN CC NN : . VB : CC NN : CC VBG NN PRP . CC NN : NN : CC NN : VBP RB VB IN . CC NN : RB VBZ : CC NN : CC VBG NN PRP . . . . . . . . . CC NN : 
+NN IN NN . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+CC NN : CC . NN . JJ NN CC NN : . . JJ NN NN . NN NN . JJ NN . NN . JJ NN CC NN : . VBP JJ NN . NN . JJ CC NN : . VB NN . . JJ NN NN . NN . JJ RB CD NN NN NN . NN . NN 
+. . . . . . . . . . . . . . . . . . . . . . . . . . , . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . NN . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+NN . . . . . . . . . . . . . . . . . . , . . . . . . . . . . . . . . . . . . . . . . . . . . . . . , . . . . . : . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ) 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+NN POS CC NN : JJ NN POS CD NN CC NN : NN : CC NN : VB PRP TO VB CC VB : PRP CD JJ NN NNP CC NN : RP CC NN : IN CD JJ CD NN . VB VBP CC VBP : RP CC NN : . VB MD VB DT RB CC RB : RB . 
+NN NN . VB . JJ NN NN . JJ NN NNP NNP NNP NNP NNP NNP NNP NNP NNP . NN . JJ NN NN . VB . JJ NN NNP . VB JJ NNP . NNP NNP NNP NNP . NN . JJ NN NNP NNP NNP NNP NNP NNP NNP . NN . VB NN . JJ NN NN . 
+CC NN : CC JJ , JJ VBP NN IN DT NN NN CC NN : , CC NN : CC CC NN : , CC NN : MD VB NN DT JJ NN IN PRP CC NN : , CC NN : CC CC NN : , CC NN : CC , PRP VBZ VBN CC NN : : JJ NN . 
